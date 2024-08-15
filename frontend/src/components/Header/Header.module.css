@@ -1,0 +1,14 @@
+.headerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

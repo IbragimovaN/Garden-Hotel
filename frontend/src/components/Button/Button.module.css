@@ -1,0 +1,18 @@
+.button {
+  border-radius: 5px;
+  background: linear-gradient(#33bfba61 1%, #65ab778c 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sircle {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.square {
+  width: 100%;
+  height: 40px;
+}

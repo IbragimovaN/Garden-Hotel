@@ -1,0 +1,17 @@
+.adminPage {
+  display: flex;
+  flex-direction: row;
+}
+
+.adminPage_col {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid gray;
+  gap: 30px;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

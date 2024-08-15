@@ -1,0 +1,11 @@
+.layout {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.outlet {
+  padding-top: 100px;
+  min-height: calc(100vh - 150px);
+}

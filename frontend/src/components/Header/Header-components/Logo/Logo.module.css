@@ -1,0 +1,39 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  height: 80px;
+  border: 1px solid black;
+  position: relative;
+  justify-self: center;
+  border-radius: 5px;
+}
+
+.imgWrapper {
+  position: absolute;
+  bottom: -50%;
+  transform: rotate(7deg);
+  right: -20px;
+  width: 100px;
+  height: 100px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  transform: rotate(7deg);
+}
+
+.title {
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.2;
+  padding: 5px;
+
+  background-color: #bf33bdfc;
+  background-image: linear-gradient(73deg, #33bfbab3, #65ab77);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #bf33bd00;
+}

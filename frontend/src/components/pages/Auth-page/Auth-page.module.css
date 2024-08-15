@@ -1,0 +1,23 @@
+.authPage {
+  background-image: linear-gradient(73deg, #33bfba30, #65ab771b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.authPageWrapper {
+  height: calc(100vh - 150px);
+}
+
+.authForm {
+  text-align: center;
+  width: 350px;
+  padding: 20px;
+  /* background-image: linear-gradient(73deg, #33bfba30, #65ab771b); */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  margin-top: 150px;
+}

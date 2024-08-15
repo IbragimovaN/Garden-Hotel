@@ -1,0 +1,80 @@
+[
+  {
+    "number": 111,
+    "type": "Стандарт",
+    "price": 4000,
+    "rate": 1,
+    "imagesUrl": [],
+    "bookings": "",
+    "hasWifi": true,
+    "hasConditioner": true,
+    "hasWorkSpace": false,
+    "canSmoke": false,
+    "canPets": false
+  },
+  {
+    "number": 222,
+    "type": "Стандарт",
+    "price": 5000,
+    "rate": 2,
+    "imagesUrl": [],
+    "bookings": "",
+    "hasWifi": true,
+    "hasConditioner": true,
+    "hasWorkSpace": true,
+    "canSmoke": false,
+    "canPets": true
+  },
+  {
+    "number": 333,
+    "type": "Семейный",
+    "price": 6000,
+    "rate": 2,
+    "imagesUrl": [],
+    "bookings": "",
+    "hasWifi": true,
+    "hasConditioner": true,
+    "hasWorkSpace": true,
+    "canSmoke": false,
+    "canPets": true
+  },
+  {
+    "number": 444,
+    "type": "Стандарт",
+    "price": 4000,
+    "rate": 2,
+    "imagesUrl": [],
+    "bookings": "",
+    "hasWifi": true,
+    "hasConditioner": true,
+    "hasWorkSpace": false,
+    "canSmoke": false,
+    "canPets": false
+  },
+  {
+    "number": 555,
+    "type": "Люкс",
+    "price": 30000,
+    "rate": 2,
+    "imagesUrl": [],
+    "bookings": "",
+    "hasWifi": true,
+    "hasConditioner": true,
+    "hasWorkSpace": true,
+    "canSmoke": true,
+    "canPets": true
+  },
+  {
+    "number": 666,
+    "type": "Одноместный",
+    "price": 3000,
+    "rate": 2,
+    "imagesUrl": [],
+    "bookings": "",
+    "hasWifi": true,
+    "hasConditioner": true,
+    "hasWorkSpace": true,
+    "canSmoke": true,
+    "canPets": false
+  }
+]
