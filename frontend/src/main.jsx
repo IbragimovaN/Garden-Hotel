@@ -12,7 +12,6 @@ import {
   AdminPage,
 } from "./components/index.js";
 import {
-  AddRoom,
   BookingList,
   RoomsList,
 } from "./components/pages/Admin-page/Admin-page-components/index.js";
@@ -34,7 +33,7 @@ const router = createBrowserRouter([
         element: <AdminPage />,
         children: [
           { path: "roomList", element: <RoomsList /> },
-          { path: "addRoom", element: <AddRoom /> },
+
           { path: "bookingList", element: <BookingList /> },
         ],
       },

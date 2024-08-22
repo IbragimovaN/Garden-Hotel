@@ -1,6 +1,6 @@
-import { Button } from "../../Button/Button";
+import { Button } from "../../common/Button/Button";
 import { Container } from "../../Container/Container";
-import { Input } from "../../Input/Input";
+import { Input } from "../../common/Input/Input";
 import styles from "./Auth-page.module.css";
 
 export const AuthPage = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../../../Button/Button";
+import { Button } from "../../../common/Button/Button";
 import styles from "./Guest-count.module.css";
 
 export const GuestCount = ({ ageGroup }) => {

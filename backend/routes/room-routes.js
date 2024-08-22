@@ -50,6 +50,35 @@ router.post("/", upload.array("imagesUrl", 6), async (req, res) => {
   }
 });
 
+router.patch(
+  "/:id/imagesUrl",
+  upload.array("imagesUrl", 6),
+  async (req, res) => {
+    console.log("запустился роут");
+    console.log(req.files);
+
+    try {
+      const imagesUrlsNew = req.files.map((file) => file.path);
+
+      // Обновляем документ, добавляя новые изображения в массив imagesUrl
+      const updatedRoom = await Room.findByIdAndUpdate(
+        req.params.id,
+        { $push: { imagesUrl: { $each: imagesUrlsNew } } }, // Используем $push с $each для добавления нескольких элементов
+        { new: true } // Возвращаем обновленный документ
+      );
+
+      if (!updatedRoom) {
+        return res.status(404).send("Room not found");
+      }
+
+      res.status(200).json(updatedRoom);
+    } catch (e) {
+      console.error(e);
+      res.status(500).send("Internal server error");
+    }
+  }
+);
+
 router.patch("/:id", async (req, res) => {
   try {
     // console.log(req.params.id, req.body);
@@ -69,76 +98,5 @@ router.patch("/:id", async (req, res) => {
     res.status(200).json(updatedRoom);
   } catch (e) {}
 });
-
-// router.post("/:id/comments", authenticated, async (req, res) => {
-//   const newComment = await addComment(req.params.id, {
-//     content: req.body.content,
-//     author: req.user.id,
-//   });
-
-//   res.send(mapComment(newComment));
-// });
-
-// router.delete(
-//   "/:postId/comments/:commentId",
-//   authenticated,
-//   hasRole([ROLES.ADMIN, ROLES.MODERATOR]),
-//   async (req, res) => {
-//     await deleteComment(req.params.postId, req.params.commentId);
-
-//     res.send({ error: null });
-//   }
-// );
-
-// router.post("/", authenticated, hasRole([ROLES.ADMIN]), async (req, res) => {
-//   try {
-//     const newProduct = await addProduct({
-//       title: req.body.title,
-//       image_url: req.body.imagesUrl,
-//       brand: req.body.brand,
-//       category: req.body.category,
-//       age: req.body.age,
-//       price: req.body.price,
-//       rating: req.body.rating,
-//       description: req.body.description,
-//       hair_type: req.body.hairType,
-//     });
-//     res.send({ data: mapProduct(newProduct) });
-//   } catch (e) {
-//     res.send({ error: e.message || "Неизвестная ошибка" });
-//   }
-// });
-
-// router.patch(
-//   "/:id",
-//   authenticated,
-//   hasRole([ROLES.ADMIN]),
-//   async (req, res) => {
-//     const updatedProduct = await editProduct(req.params.id, {
-//       title: req.body.title,
-//       image_url: req.body.imagesUrl,
-//       brand: req.body.brand,
-//       category: req.body.category,
-//       age: req.body.age,
-//       price: req.body.price,
-//       rating: req.body.rating,
-//       description: req.body.description,
-//       hair_type: req.body.hairType,
-//     });
-
-//     res.send({ data: mapProduct(updatedProduct) });
-//   }
-// );
-
-// router.delete(
-//   "/:id",
-//   authenticated,
-//   hasRole([ROLES.ADMIN]),
-//   async (req, res) => {
-//     await deleteProduct(req.params.id);
-
-//     res.send({ error: null });
-//   }
-// );
 
 module.exports = router;

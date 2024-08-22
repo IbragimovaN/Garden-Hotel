@@ -5,7 +5,7 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { IconWrapper } from "../../../../IconWrapper/IconWrapper";
+import { IconWrapper } from "../../../../common/IconWrapper/IconWrapper";
 import {
   fetchRooms,
   roomsSelector,
@@ -14,7 +14,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-export const ControlPanel = ({
+export const ControlPanelCell = ({
   setIsEditing,
   isEditing,
   roomId,
@@ -43,7 +43,7 @@ export const ControlPanel = ({
       hasWorkSpace: getCheckedValue("hasWorkSpace"),
       canPets: getCheckedValue("canPets"),
     };
-    console.log(roomId, newData);
+
     dispatch(updateRoom({ roomId, roomData: newData }));
     setIsEditing(false);
   };

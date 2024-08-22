@@ -7,6 +7,7 @@ const schema = new Schema({
   rate: Number,
   imagesUrl: [String],
   bookings: [{ type: Schema.Types.ObjectId, ref: "Booking" }],
+
   hasWifi: Boolean,
   hasConditioner: Boolean,
   hasWorkSpace: Boolean,

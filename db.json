@@ -6,11 +6,13 @@
     "rate": 1,
     "imagesUrl": [],
     "bookings": "",
-    "hasWifi": true,
-    "hasConditioner": true,
-    "hasWorkSpace": false,
-    "canSmoke": false,
-    "canPets": false
+    "comforts": {
+      "hasWifi": true,
+      "hasConditioner": true,
+      "hasWorkSpace": false,
+      "canSmoke": false,
+      "canPets": false
+    }
   },
   {
     "number": 222,

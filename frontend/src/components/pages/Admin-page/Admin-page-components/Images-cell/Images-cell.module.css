@@ -1,19 +1,11 @@
-.imgWrapper {
-  position: relative;
-  max-width: "200px";
-  max-height: "200px";
+.imagesCell_row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
 }
-
-.img {
-  max-width: "200px";
-  max-height: "200px";
-}
-
-.delete {
-  position: absolute;
-  right: -8px;
-  top: -12px;
-  color: red;
-  z-index: 10;
-  cursor: pointer;
+.images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
 }

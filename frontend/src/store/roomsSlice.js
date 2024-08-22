@@ -51,6 +51,16 @@ const roomsSlice = createSlice({
         return room;
       });
     },
+    // addImg(state, action) {
+    //   const { id, newImgArr } = action.payload;
+
+    //   state.rooms = state.rooms.map((room) => {
+    //     if (room._id === id) {
+    //       return { ...room, imagesUrl: [...room.imagesUrl, ...newImgArr] };
+    //     }
+    //     return room;
+    //   });
+    // },
   },
   extraReducers: (builder) => {
     builder
@@ -78,7 +88,7 @@ const roomsSlice = createSlice({
 });
 
 const { actions, reducer: roomsReducer } = roomsSlice;
-export const { deleteImg } = actions;
+export const { deleteImg, addImg } = actions;
 
 export const roomsSelector = (state) => state.rooms.rooms;
 export const isLoadingSelector = (state) => state.rooms.loading;

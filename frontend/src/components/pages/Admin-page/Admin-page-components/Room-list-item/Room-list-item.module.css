@@ -4,24 +4,6 @@
   flex-direction: row;
   gap: 10px;
 }
-
-.comfortCell {
-  position: relative;
-  width: 170px;
-}
-.comfortList {
-  /* position: absolute; */
-  background: #d17c7c;
-  z-index: 5;
-  top: 30px;
-  left: 0;
-  width: 100%;
-}
 .imagesCell {
-  width: 200px;
-}
-.images {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  max-width: 650px;
 }

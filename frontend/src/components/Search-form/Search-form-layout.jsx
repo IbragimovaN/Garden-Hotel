@@ -1,5 +1,5 @@
 import { AGE_GROUP } from "../../constants";
-import { Button } from "../Button/Button";
+import { Button } from "../common/Button/Button";
 import styles from "./Search-form-layout.module.css";
 import { GuestCount, SearchFormDates } from "./Serch-form-components";
 

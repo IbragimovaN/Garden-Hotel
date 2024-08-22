@@ -1,0 +1,12 @@
+.comfortCell {
+  position: relative;
+  width: 170px;
+}
+.comfortList {
+  /* position: absolute; */
+  background: #d17c7c;
+  z-index: 5;
+  top: 30px;
+  left: 0;
+  width: 100%;
+}
