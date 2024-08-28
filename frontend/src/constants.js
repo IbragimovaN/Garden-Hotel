@@ -5,8 +5,9 @@ export const AGE_GROUP = {
 
 export const TYPES_ROOM_GROUP = {
   STANDART: "Стандарт",
-  FAMILY: "Семейный",
   SINGLE: "Одноместный",
+  DOUBLE: "Двухместный",
+  FAMILY: "Семейный",
   LUXE: "Люкс",
 };
 

@@ -3,7 +3,7 @@ import Dropzone from "react-dropzone";
 import { Button } from "../Button/Button";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addImg } from "../../../store/roomsSlice";
+import { addImageToRoom, addImg } from "../../../store/roomsSlice";
 
 export const AddImage = ({ id }) => {
   const [imagesUrl, setImagesUrl] = useState([]);
@@ -21,14 +21,16 @@ export const AddImage = ({ id }) => {
       formData.append("imagesUrl", imagesUrl[i]);
     }
 
-    try {
-      await axios.patch(
-        `http://localhost:3004/rooms/${id}/imagesUrl`,
-        formData
-      );
-    } catch (e) {
-      console.log(e);
-    }
+    await dispatch(addImageToRoom({ roomId: id, formData }));
+
+    // try {
+    //   await axios.patch(
+    //     `http://localhost:3004/rooms/${id}/imagesUrl`,
+    //     formData
+    //   );
+    // } catch (e) {
+    //   console.log(e);
+    // }
   };
   const handleDrop = (acceptedFiles) => {
     setImagesUrl(acceptedFiles);

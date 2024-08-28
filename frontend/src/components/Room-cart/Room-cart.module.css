@@ -1,0 +1,17 @@
+.cart {
+  width: 250px;
+  height: 250px;
+  border: 1px solid gray;
+  position: relative;
+}
+.typeRoomRow {
+  position: absolute;
+  background: #33bfba57;
+  top: 10px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

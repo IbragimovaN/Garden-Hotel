@@ -31,6 +31,17 @@ export const updateRoom = createAsyncThunk(
   }
 );
 
+export const addImageToRoom = createAsyncThunk(
+  "rooms/addImageToRoom",
+  async ({ roomId, formData }) => {
+    const response = await axios.patch(
+      `http://localhost:3004/rooms/${roomId}/imagesUrl`,
+      formData
+    );
+    return response.data;
+  }
+);
+
 const roomsSlice = createSlice({
   name: "rooms",
   initialState: {
@@ -51,16 +62,6 @@ const roomsSlice = createSlice({
         return room;
       });
     },
-    // addImg(state, action) {
-    //   const { id, newImgArr } = action.payload;
-
-    //   state.rooms = state.rooms.map((room) => {
-    //     if (room._id === id) {
-    //       return { ...room, imagesUrl: [...room.imagesUrl, ...newImgArr] };
-    //     }
-    //     return room;
-    //   });
-    // },
   },
   extraReducers: (builder) => {
     builder
@@ -80,6 +81,11 @@ const roomsSlice = createSlice({
       .addCase(deleteRoom.fulfilled, (state, { payload }) => {})
       .addCase(addRoom.fulfilled, (state, { payload }) => {})
       .addCase(updateRoom.fulfilled, (state, { payload }) => {
+        state.rooms = state.rooms.map((room) =>
+          room._id === payload._id ? payload : room
+        );
+      })
+      .addCase(addImageToRoom.fulfilled, (state, { payload }) => {
         state.rooms = state.rooms.map((room) =>
           room._id === payload._id ? payload : room
         );

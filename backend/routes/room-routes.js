@@ -54,13 +54,9 @@ router.patch(
   "/:id/imagesUrl",
   upload.array("imagesUrl", 6),
   async (req, res) => {
-    console.log("запустился роут");
-    console.log(req.files);
-
     try {
       const imagesUrlsNew = req.files.map((file) => file.path);
 
-      // Обновляем документ, добавляя новые изображения в массив imagesUrl
       const updatedRoom = await Room.findByIdAndUpdate(
         req.params.id,
         { $push: { imagesUrl: { $each: imagesUrlsNew } } }, // Используем $push с $each для добавления нескольких элементов

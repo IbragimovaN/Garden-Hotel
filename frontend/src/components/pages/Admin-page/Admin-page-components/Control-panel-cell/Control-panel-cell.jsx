@@ -30,9 +30,8 @@ export const ControlPanelCell = ({
     return checked;
   };
 
-  const rooms = useSelector(roomsSelector);
   const saveUpdates = () => {
-    console.log(selectedValue);
+    console.log(priceValue);
     const newData = {
       type: selectedValue,
       price: priceValue,

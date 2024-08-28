@@ -14,7 +14,7 @@ export const TypeRoomCell = ({
       {isEditing ? (
         <select value={selectedValue} onChange={onSelectedProductChange}>
           {Object.keys(TYPES_ROOM_GROUP).map((key) => (
-            <option key={key} value={key}>
+            <option key={key} value={TYPES_ROOM_GROUP[key]}>
               {TYPES_ROOM_GROUP[key]}
             </option>
           ))}

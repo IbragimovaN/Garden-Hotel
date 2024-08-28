@@ -1,0 +1,16 @@
+.ratingRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.goldStar {
+  color: rgb(252, 212, 33);
+}
+
+.goldStarHover {
+  color: rgb(182, 180, 176);
+}
+
+.goldStarHover:hover {
+  color: rgb(252, 212, 33);
+}

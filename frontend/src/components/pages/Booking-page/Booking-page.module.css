@@ -1,0 +1,30 @@
+.bookingPage {
+  display: grid;
+  width: 100%;
+  grid-template: 50px 1fr/250px 1fr;
+  min-height: calc(100vh - 150px);
+}
+
+.searchAndFilterPanel {
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  border: 1px solid green;
+}
+
+.rommsList {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
