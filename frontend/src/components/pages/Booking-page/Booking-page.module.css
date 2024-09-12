@@ -1,15 +1,14 @@
 .bookingPage {
   display: grid;
   width: 100%;
-  grid-template: 50px 1fr/250px 1fr;
+  grid-template: 50px 1fr/280px 1fr;
   min-height: calc(100vh - 150px);
 }
 
 .searchAndFilterPanel {
-  grid-row-start: 1;
+  grid-row-start: 2;
   grid-row-end: 3;
-
-  border: 1px solid green;
+  padding: 0 10px 0 10px;
 }
 
 .rommsList {
@@ -27,4 +26,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }

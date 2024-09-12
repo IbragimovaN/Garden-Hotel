@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputCheckbox, IconWrapper } from "../../../../common";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Comforts-cell.module.css";
@@ -6,10 +6,11 @@ import styles from "./Comforts-cell.module.css";
 export const ComfortsCell = ({ isEditing, checkArr, setCheckArr }) => {
   const [isOpenComfortsList, setIsOpenComfortsList] = useState(false);
 
-  const onChangeCheck = (index) => {
+  const onChangeCheck = (index, checked) => {
     const updatedArr = checkArr.map((item, idx) => {
       if (idx === Number(index)) {
-        return { ...item, checked: !item.checked };
+        return { ...item, checked: checked };
+        // return { ...item, checked: !item.checked };
       } else {
         return item;
       }

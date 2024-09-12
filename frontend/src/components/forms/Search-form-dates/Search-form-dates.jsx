@@ -1,10 +1,14 @@
 import { useState } from "react";
 import styles from "./Search-form-dates.module.css";
-import { Input } from "../../../common/Input/Input";
+import { Input } from "../../common";
 
 export const SearchFormDates = () => {
-  const [checkInDate, setCheckInDate] = useState(Date.now);
-  const [checkOutDate, setCheckOutDate] = useState(Date.now);
+  const [checkInDate, setCheckInDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
+  const [checkOutDate, setCheckOutDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
 
   const handleCheckInChange = (event) => {
     setCheckInDate(event.target.value);

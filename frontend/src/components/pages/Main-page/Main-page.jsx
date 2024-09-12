@@ -7,7 +7,10 @@ export const MainPage = () => {
     <main className={styles.mainPage}>
       <Container>
         {" "}
-        <SearchFormLayout />
+        <div className={styles.searchFormWrapper}>
+          {" "}
+          <SearchFormLayout />
+        </div>
       </Container>
     </main>
   );

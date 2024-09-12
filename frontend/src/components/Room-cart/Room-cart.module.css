@@ -1,16 +1,30 @@
 .cart {
-  width: 250px;
+  width: 240px;
   height: 250px;
-  border: 1px solid gray;
+  -webkit-box-shadow: 0px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 3px 8px 0px rgba(34, 60, 80, 0.2);
   position: relative;
 }
 .typeRoomRow {
   position: absolute;
   background: #33bfba57;
   top: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
 }
 .row {
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

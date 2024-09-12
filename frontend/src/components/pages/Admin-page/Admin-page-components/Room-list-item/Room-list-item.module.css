@@ -7,3 +7,6 @@
 .imagesCell {
   max-width: 650px;
 }
+.input {
+  border: none;
+}

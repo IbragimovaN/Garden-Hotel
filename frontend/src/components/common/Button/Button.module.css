@@ -16,3 +16,10 @@
   width: 100%;
   height: 40px;
 }
+
+.miniSquare {
+  width: 150px;
+  height: 30px;
+  font-style: 15px;
+  background: #33bfba57;
+}

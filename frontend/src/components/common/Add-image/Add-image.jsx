@@ -9,9 +9,9 @@ export const AddImage = ({ id }) => {
   const [imagesUrl, setImagesUrl] = useState([]);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(imagesUrl);
-  }, [imagesUrl]);
+  // useEffect(() => {
+  //   console.log(imagesUrl);
+  // }, [imagesUrl]);
 
   const onSubmit = async (event) => {
     event.preventDefault();

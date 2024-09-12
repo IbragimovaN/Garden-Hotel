@@ -10,8 +10,9 @@ export const RoomsList = () => {
   const dispatch = useDispatch();
   const roomsList = useSelector(roomsSelector);
 
+  console.log(roomsList);
+
   useEffect(() => {
-    console.log(roomsList);
     dispatch(fetchRooms());
   }, []);
 
@@ -26,7 +27,24 @@ export const RoomsList = () => {
       </thead>
       <tbody>
         {roomsList.map((room) => (
-          <RoomListItem key={room._id} room={room} />
+          <RoomListItem
+            key={room._id}
+            id={room._id}
+            number={room.number}
+            type={room.type}
+            price={room.price}
+            rate={room.rate}
+            maxAdult={room.maxAdult}
+            maxChildren={room.maxChildren}
+            imagesUrl={room.imagesUrl}
+            comfortsObj={{
+              hasWifi: room.hasWifi,
+              hasConditioner: room.hasConditioner,
+              hasWorkSpace: room.hasWorkSpace,
+              canSmoke: room.canSmoke,
+              canPets: room.canPets,
+            }}
+          />
         ))}
       </tbody>
     </table>

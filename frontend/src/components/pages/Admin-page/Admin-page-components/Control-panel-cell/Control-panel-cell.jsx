@@ -22,6 +22,8 @@ export const ControlPanelCell = ({
   selectedValue,
   priceValue,
   images,
+  maxAdult,
+  maxChildren,
 }) => {
   const dispatch = useDispatch();
 
@@ -31,7 +33,6 @@ export const ControlPanelCell = ({
   };
 
   const saveUpdates = () => {
-    console.log(priceValue);
     const newData = {
       type: selectedValue,
       price: priceValue,
@@ -41,6 +42,8 @@ export const ControlPanelCell = ({
       hasConditioner: getCheckedValue("hasConditioner"),
       hasWorkSpace: getCheckedValue("hasWorkSpace"),
       canPets: getCheckedValue("canPets"),
+      maxAdult: maxAdult,
+      maxChildren: maxChildren,
     };
 
     dispatch(updateRoom({ roomId, roomData: newData }));

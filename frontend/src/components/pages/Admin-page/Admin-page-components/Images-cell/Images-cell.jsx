@@ -10,9 +10,9 @@ export const ImagesCell = ({ isEditing, imagesUrl, id }) => {
   const [isOpenAddImgField, setIsOpenAddImgField] = useState(false);
   const [isOpenImg, setIsOpenImg] = useState(false);
 
-  useEffect(() => {
-    console.log(imagesUrl);
-  }, [imagesUrl]);
+  // useEffect(() => {
+  //   console.log(imagesUrl);
+  // }, [imagesUrl]);
   return (
     <>
       <div className={styles.imagesCell_row}>

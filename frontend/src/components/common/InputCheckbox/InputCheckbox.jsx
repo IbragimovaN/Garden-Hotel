@@ -4,7 +4,7 @@ export const InputCheckbox = ({ checked, text, isEditing, onChange, id }) => {
       <input
         type="checkbox"
         checked={checked}
-        onChange={({ target }) => onChange(target.id)}
+        onChange={({ target }) => onChange(target.id, target.checked)}
         readOnly={!isEditing}
         id={id}
       />

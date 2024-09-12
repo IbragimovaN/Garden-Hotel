@@ -4,6 +4,8 @@ import styles from "./Booking-page.module.css";
 import { fetchRooms, roomsSelector } from "../../../store/roomsSlice";
 import { RoomCart } from "../../Room-cart/Room-cart";
 import { useEffect } from "react";
+import { SearchFormLayout } from "../../Search-form/Search-form-layout";
+import { ComfortsChecklist } from "../../forms/Comforts-checklist/Comforts-checklist";
 
 export const BookingPage = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,9 @@ export const BookingPage = () => {
   return (
     <Container>
       <div className={styles.bookingPage}>
-        <div className={styles.searchAndFilterPanel}>форма поиска номеров</div>
+        <div className={styles.searchAndFilterPanel}>
+          <SearchFormLayout fromBookingPage={true} />
+        </div>
         <div className={styles.searchField}>
           {" "}
           <div>поиск</div>

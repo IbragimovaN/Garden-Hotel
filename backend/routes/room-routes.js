@@ -8,11 +8,14 @@ const router = express.Router({ mergeParams: true });
 router.get("/", async (req, res) => {
   try {
     const rooms = await Room.find();
-    // if (Object.keys(query).length > 0) {
-    //   const filteredRooms = await filterRooms(rooms, query);
+    if (Object.keys(req.query).length > 0) {
+      const filteredRooms = await filterRooms(rooms, req.query);
+      filteredRooms.forEach((element) => {
+        console.log(element.number);
+      });
 
-    //   return res.status(200).send(filteredRooms);
-    // }
+      return res.status(200).send(filteredRooms);
+    }
 
     res.status(200).send(rooms);
   } catch (error) {
