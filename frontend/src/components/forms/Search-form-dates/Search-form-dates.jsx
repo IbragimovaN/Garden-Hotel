@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Search-form-dates.module.css";
-import { Input } from "../../common";
+import Input from "../../common/Input/Input";
 
 export const SearchFormDates = () => {
   const [checkInDate, setCheckInDate] = useState(

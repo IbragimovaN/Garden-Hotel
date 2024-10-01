@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
 }
+.button:hover {
+  background: linear-gradient(#154f4d61 1%, #65ab778c 97%);
+}
 
 .sircle {
   height: 35px;

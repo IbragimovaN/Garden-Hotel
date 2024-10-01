@@ -1,17 +1,25 @@
 import { useState } from "react";
 import { Button } from "../../common";
 import styles from "./Guest-count.module.css";
+import { useDispatch } from "react-redux";
 
-export const GuestCount = ({ ageGroup, count, setCount, defaultCount }) => {
+export const GuestCount = ({
+  ageGroup,
+  count,
+  decrement,
+  increment,
+  defaultCount,
+}) => {
+  const dispatch = useDispatch();
   const onClickPlus = () => {
     if (count < 10) {
-      setCount(count + 1);
+      dispatch(increment());
     }
   };
 
   const onClickMinus = () => {
     if (count > defaultCount) {
-      setCount(count - 1);
+      dispatch(decrement());
     }
   };
   return (

@@ -17,6 +17,9 @@ import {
 } from "./components/pages/Admin-page/Admin-page-components/index.js";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
+import { RegistrationPage } from "./components/pages/Registration-page/Registration-page.jsx";
+import { Account } from "./components/pages/Account/Account.jsx";
+import { AccountInfo } from "./components/pages/Account/Account-components/Account-info/Account-info.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,7 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutPage /> },
       { path: "contacts", element: <ContactsPage /> },
       { path: "authPage", element: <AuthPage /> },
+      { path: "registrationPage", element: <RegistrationPage /> },
       {
         path: "admin",
         element: <AdminPage />,
@@ -37,14 +41,21 @@ const router = createBrowserRouter([
           { path: "bookingList", element: <BookingList /> },
         ],
       },
+      {
+        path: "account",
+        element: <Account />,
+        children: [
+          { path: "myBooking", element: <div>Мои бронирования</div> },
+
+          { path: "accountInfo", element: <AccountInfo /> },
+        ],
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

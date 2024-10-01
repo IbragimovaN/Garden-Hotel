@@ -1,0 +1,12 @@
+.bookingForm {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.headerForm {
+  display: flex;
+  justify-content: space-between;
+}

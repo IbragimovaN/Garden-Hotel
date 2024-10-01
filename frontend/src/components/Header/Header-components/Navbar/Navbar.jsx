@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 // isActive ? `${styles.link} ${styles.activeLink}` : styles.link;
+const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+console.log(currentUser);
 
 export const isActiveLink = ({ isActive }) =>
   isActive ? styles.activeLink : styles.link;
@@ -22,7 +24,16 @@ export const Navbar = () => {
         <NavLink to="contacts" className={isActiveLink}>
           Контакты
         </NavLink>
-        <NavLink to="admin" className={isActiveLink}>
+        <NavLink
+          to={
+            currentUser
+              ? currentUser.role === "admin"
+                ? "admin"
+                : "account"
+              : "authPage"
+          }
+          className={isActiveLink}
+        >
           Личный кабинет
         </NavLink>
       </ul>

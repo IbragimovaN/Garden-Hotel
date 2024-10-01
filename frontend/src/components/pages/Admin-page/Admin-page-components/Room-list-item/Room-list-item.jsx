@@ -6,7 +6,7 @@ import { ComfortsCell } from "../Comforts-cell/Comforts-cell";
 import { TypeRoomCell } from "../Type-room-cell/Type-room-cell";
 import styles from "./Room-list-item.module.css";
 import { COMFORTS_CHECKLIST } from "../../../../../constants";
-import { Input } from "../../../../common";
+import Input from "../../../../common/Input/Input";
 
 export const RoomListItem = ({
   id,

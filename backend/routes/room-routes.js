@@ -6,9 +6,11 @@ const upload = require("../middleweare/uploads");
 const router = express.Router({ mergeParams: true });
 
 router.get("/", async (req, res) => {
+  console.log("get");
   try {
     const rooms = await Room.find();
     if (Object.keys(req.query).length > 0) {
+      console.log(req.query);
       const filteredRooms = await filterRooms(rooms, req.query);
       filteredRooms.forEach((element) => {
         console.log(element.number);

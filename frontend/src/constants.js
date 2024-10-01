@@ -43,3 +43,5 @@ export const COMFORTS_CHECKLIST = [
     text: " Можно с животными",
   },
 ];
+
+export const baseURL = "http://localhost:3004";

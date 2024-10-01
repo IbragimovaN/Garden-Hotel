@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRooms, roomsSelector } from "../../../../../store/roomsSlice";
 import { RoomListItem } from "../Room-list-item/Room-list-item";
@@ -9,8 +8,6 @@ import styles from "./Rooms-list.module.css";
 export const RoomsList = () => {
   const dispatch = useDispatch();
   const roomsList = useSelector(roomsSelector);
-
-  console.log(roomsList);
 
   useEffect(() => {
     dispatch(fetchRooms());
