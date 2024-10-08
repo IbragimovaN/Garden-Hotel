@@ -9,7 +9,7 @@ const usersSlice = createSlice({
     users: [],
     error: null,
     isLoading: false,
-    currentUser: null,
+    currentUser: JSON.parse(sessionStorage.getItem("currentUser")) || null,
   },
   reducers: {
     deleteServerError(state, action) {
@@ -29,8 +29,6 @@ const usersSlice = createSlice({
         if (payload.error) {
           console.log(payload.error);
           state.error = payload.error;
-        } else {
-          state.currentUser = payload;
         }
       })
       .addCase(registrationUser.rejected, (state, { error }) => {
@@ -52,6 +50,24 @@ const usersSlice = createSlice({
         }
       })
       .addCase(loginUser.rejected, (state, { error }) => {
+        state.isLoading = false;
+        state.error = error.message;
+      })
+      .addCase(editingInfoUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(editingInfoUser.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+
+        if (payload.error) {
+          state.error = payload.error;
+        } else {
+          state.currentUser = payload;
+          sessionStorage.setItem("currentUser", JSON.stringify(payload));
+        }
+      })
+      .addCase(editingInfoUser.rejected, (state, { error }) => {
         state.isLoading = false;
         state.error = error.message;
       })
@@ -85,6 +101,16 @@ export const logout = createAsyncThunk("users/logout", async () => {
 
   return response.data;
 });
+
+export const editingInfoUser = createAsyncThunk(
+  "users/editingInfoUser",
+  async ({ data, id }) => {
+    console.log(data, id);
+    const response = await axios.patch(`${baseURL}/users/${id}`, data);
+
+    return response.data;
+  }
+);
 
 const { actions, reducer: usersReducer } = usersSlice;
 export const { deleteServerError } = actions;

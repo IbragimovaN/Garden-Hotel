@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const regFromSchema = yup.object().shape({
+export const editingFormSchema = yup.object().shape({
   firstName: yup
     .string()
     .required("Введите имя")
@@ -26,18 +26,4 @@ export const regFromSchema = yup.object().shape({
     .date()
     .required("Введите дату рождения")
     .max(new Date(), "Дата рождения не может быть сегодня или в будущем"),
-
-  password: yup
-    .string()
-    .required("Заполните пароль")
-    .matches(
-      /^[\w#%]+$/,
-      "Неверно заполнен пароль, допускаются буквыб цифры и знаки № %"
-    )
-    .min(6, "Не верный пароль. Минимум 6 символа.")
-    .max(30, "Не верный пароль. Максимум 30 символов"),
-  passcheck: yup
-    .string()
-    .required("Заполните повтор пароля")
-    .oneOf([yup.ref("password"), null], "Повтор пароля не совпадает"),
 });

@@ -17,12 +17,23 @@ router.post("/register", async (req, res) => {
     }
 
     const passwordHash = await bcrypt.hash(req.body.password, 10);
+    let avatar = "";
+    if (req.body.gender === "женщина") {
+      avatar = "uploads/avatar-woman.jpg";
+    } else if (req.body.gender === "мужчина") {
+      avatar = "uploads/avatar-man.jpg";
+    } else {
+      avatar = "uploads/avatar-other.webp";
+    }
+
     let user = await User.create({
       firstName: req.body.firstName,
       secondName: req.body.secondName,
+      gender: req.body.gender,
       birthYear: req.body.birthYear,
       email: req.body.email,
       password: passwordHash,
+      avatar: avatar,
     });
     res.send(user);
   } catch (e) {

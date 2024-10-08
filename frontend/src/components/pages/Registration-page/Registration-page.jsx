@@ -13,8 +13,11 @@ import {
   registrationUser,
 } from "../../../store/usersSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { regFromSchema } from "./reg-form-schema";
+
 import { useNavigate } from "react-router-dom";
+
+import { UserInfoInputs } from "../../User-info-inputs/User-info-inputs";
+import { regFormSchema } from "../../../Validate/reg-form-schema";
 
 export const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -34,13 +37,17 @@ export const RegistrationPage = () => {
       email: "",
       password: "",
       passcheck: "",
+      gender: "другое",
     },
-    resolver: yupResolver(regFromSchema),
+    resolver: yupResolver(regFormSchema),
   });
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log("submit click");
-    dispatch(registrationUser(data)).then(() => navigate("../authPage"));
+    console.log("submit click", data);
+
+    dispatch(registrationUser(data)).then((data) =>
+      !data.payload.error ? navigate("../authPage") : ""
+    );
   };
 
   const formError =
@@ -59,39 +66,7 @@ export const RegistrationPage = () => {
         <div className={styles.regPage}>
           <form className={styles.regForm} onSubmit={handleSubmit(onSubmit)}>
             <H2>Страница регистрации</H2>
-            <div>
-              {errorMessage && (
-                <div className={styles.error}>{errorMessage}</div>
-              )}
-            </div>
-            <Input
-              type="text"
-              placeholder="Имя"
-              {...register("firstName", {
-                onChange: () => dispatch(deleteServerError()),
-              })}
-            />
-            <Input
-              type="text"
-              placeholder="Фамилия"
-              {...register("secondName", {
-                onChange: () => dispatch(deleteServerError()),
-              })}
-            />
-
-            <Input
-              className={styles.input}
-              type="date"
-              placeholder="Дата рождения"
-              {...register("birthday")}
-            />
-            <Input
-              type="email"
-              placeholder="Email"
-              {...register("email", {
-                onChange: () => dispatch(deleteServerError()),
-              })}
-            />
+            <UserInfoInputs register={register} errorMessage={errorMessage} />
             <Input
               type="password"
               placeholder="Пароль"

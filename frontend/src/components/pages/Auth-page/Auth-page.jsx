@@ -6,13 +6,15 @@ import { H2 } from "../../common/H2/H2";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { authFormSchema } from "./auth-form-schema";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteServerError,
   isErrorAuthSelector,
   loginUser,
 } from "../../../store/usersSlice";
+
+import { authFormSchema } from "../../../Validate/auth-form-schema";
 
 export const AuthPage = () => {
   const dispatch = useDispatch();
@@ -31,8 +33,10 @@ export const AuthPage = () => {
   });
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log("submit click");
-    dispatch(loginUser(data)).then(() => navigate("../account"));
+    console.log("submit click", data);
+    dispatch(loginUser(data)).then((data) =>
+      !data.payload.error ? navigate("../authPage") : ""
+    );
   };
 
   const formError = errors?.email?.message || errors?.password?.message;
@@ -64,7 +68,7 @@ export const AuthPage = () => {
                 onChange: () => dispatch(deleteServerError()),
               })}
             />
-            <Button>Войти</Button>
+            <Button type="submit">Войти</Button>
             <Link to="../registrationPage">Зарегестироваться</Link>
           </form>
         </div>

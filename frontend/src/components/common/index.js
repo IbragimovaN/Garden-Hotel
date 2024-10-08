@@ -6,3 +6,4 @@ export * from "./Add-image/Add-image.jsx";
 export * from "./Slider-img/Slider-img.jsx";
 export * from "./Rating/Rating.jsx";
 export * from "./Modal/Modal.jsx";
+export * from "./Gender-choice-inputs/Gender-choice-inputs.jsx";

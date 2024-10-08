@@ -6,6 +6,8 @@ export const Account = () => {
     <AccountPageLayout>
       <Link to="accountInfo">Профиль</Link>
       <Link to="myBooking">Мои бронирования</Link>
+      <Link to="myFavourite">Понравилось</Link>
+      <Link to="editingAccount">Редактировать профиль</Link>
     </AccountPageLayout>
   );
 };

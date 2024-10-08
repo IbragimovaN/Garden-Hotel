@@ -10,16 +10,16 @@ import {
   Layout,
   MainPage,
   AdminPage,
-} from "./components/index.js";
-import {
+  EditingAccount,
+  Account,
+  AccountInfo,
+  RegistrationPage,
   BookingList,
   RoomsList,
-} from "./components/pages/Admin-page/Admin-page-components/index.js";
+} from "./components/index.js";
+
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
-import { RegistrationPage } from "./components/pages/Registration-page/Registration-page.jsx";
-import { Account } from "./components/pages/Account/Account.jsx";
-import { AccountInfo } from "./components/pages/Account/Account-components/Account-info/Account-info.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +46,7 @@ const router = createBrowserRouter([
         element: <Account />,
         children: [
           { path: "myBooking", element: <div>Мои бронирования</div> },
+          { path: "editingAccount", element: <EditingAccount /> },
 
           { path: "accountInfo", element: <AccountInfo /> },
         ],

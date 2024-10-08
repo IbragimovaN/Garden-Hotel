@@ -1,0 +1,32 @@
+.regPage {
+  background-image: linear-gradient(73deg, #33bfba30, #65ab771b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.regPageWrapper {
+  height: calc(100vh - 150px);
+}
+
+.regForm {
+  text-align: center;
+  width: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  margin-top: 150px;
+}
+.input {
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  padding: 2px 5px;
+}
+
+.error {
+  color: red;
+}

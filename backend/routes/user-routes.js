@@ -7,4 +7,20 @@ router.get("/", async (req, res) => {
   res.send(users);
 });
 
+router.patch(
+  "/:id",
+
+  async (req, res) => {
+    try {
+      const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+        returnDocument: "after",
+      });
+      console.log(user);
+      res.send(user);
+    } catch (e) {
+      res.send({ error: e.message || "Неизвестная ошибка" });
+    }
+  }
+);
+
 module.exports = router;

@@ -5,8 +5,6 @@ import styles from "./Header.module.css";
 import { CurrentUserSelector } from "../../store/usersSlice";
 
 export const Header = () => {
-  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-  console.log(currentUser);
   return (
     <header className={styles.headerWrapper}>
       <Container>
@@ -14,7 +12,6 @@ export const Header = () => {
           <Logo />
           <Navbar />
         </div>
-        {currentUser && <div> пользователь {currentUser.firstName}</div>}
       </Container>
     </header>
   );

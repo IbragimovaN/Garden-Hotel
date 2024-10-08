@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
-
-// isActive ? `${styles.link} ${styles.activeLink}` : styles.link;
-const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-console.log(currentUser);
+import { useSelector } from "react-redux";
+import { CurrentUserSelector } from "../../../../store/usersSlice";
 
 export const isActiveLink = ({ isActive }) =>
   isActive ? styles.activeLink : styles.link;
+
 export const Navbar = () => {
+  // const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+
+  const currentUser = useSelector(CurrentUserSelector);
   return (
     <nav className={styles.navbar}>
       <ul className={styles.list}>
@@ -29,12 +31,12 @@ export const Navbar = () => {
             currentUser
               ? currentUser.role === "admin"
                 ? "admin"
-                : "account"
+                : "account/accountInfo"
               : "authPage"
           }
           className={isActiveLink}
         >
-          Личный кабинет
+          {currentUser ? "Личный кабинет" : "Вход/регистрация"}
         </NavLink>
       </ul>
     </nav>
