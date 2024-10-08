@@ -48,7 +48,7 @@ export const EditingAccount = () => {
 
   const errorMessage = formError || serverFormError;
   return (
-    <div>
+    <div className={styles.infoWrapper}>
       <div className={styles.infoCard}>
         {/* <div>
           <img
